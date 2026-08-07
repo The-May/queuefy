@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spoti-Queuefy</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <h1><span id="status-dot"></span>Queuefy</h1>
+    <div class="masthead-right">
+      <span class="cat-no" id="header-status">not connected</span>
+      <button id="disconnect-btn" class="btn-primary hidden" type="button">Disconnect</button>
+    </div>
+  </div>
+
+  <!-- Connect gate: only thing visible until a Client ID (and passphrase, if configured) are provided -->
+  <div id="gate">
+    <div class="gate-card">
+      <div class="np-label">Client ID</div>
+      <div class="token-bar">
+        <input id="client-id-input" type="text" placeholder="Client ID" autocomplete="off">
+      </div>
+
+      <div id="passphrase-group">
+        <div class="np-label" style="margin-top:14px;">Passphrase</div>
+        <div class="token-bar">
+          <input id="passphrase-input" type="password" placeholder="Passphrase" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="token-bar" id="connect-row">
+        <button id="connect-btn" class="btn-primary">Connect</button>
+      </div>
+      <p id="conn-status"></p>
+    </div>
+  </div>
+
+  <!-- App content: hidden until connected -->
+  <div id="app" class="hidden">
+
+    <div class="now-playing" id="now-playing">
+      <div class="disc" id="disc"></div>
+      <div class="np-meta">
+        <div class="np-label">Now playing</div>
+        <div id="np-body"><div class="np-empty">—</div></div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h2>Up next</h2><div class="rule"></div>
+    </div>
+    <ul class="track-list" id="queue-list">
+      <li class="empty-row">—</li>
+    </ul>
+
+    <div class="section-head">
+      <h2>Add to queue</h2><div class="rule"></div>
+    </div>
+    <div class="search-row">
+      <input id="search-input" type="text" placeholder="Search a track or artist…">
+      <button id="search-btn">Search</button>
+    </div>
+    <ul class="track-list" id="search-list"></ul>
+
+  </div>
+
+  <footer>
+    <a href="https://github.com/The-May/queuefy" target="_blank">github.com/The-May/queuefy</a>
+  </footer>
+
+</div>
+
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
